@@ -1,0 +1,4 @@
+interface:
+  display_name: "Firmware Doc Reviewer"
+  short_description: "按文档类型路由固件评审规则并输出可审计的结构化结论"
+  default_prompt: "Use $firmware-doc-reviewer to review this firmware-related document with the matching rules."
