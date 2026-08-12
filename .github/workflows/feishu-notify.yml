@@ -1,0 +1,20 @@
+name: Feishu Notify
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  notify:
+    uses: active-ailab/skills-manifest/.github/workflows/reusable-feishu-notify.yml@main
+    secrets:
+      FEISHU_APP_ID: ${{ secrets.FEISHU_APP_ID }}
+      FEISHU_APP_SECRET: ${{ secrets.FEISHU_APP_SECRET }}
+    with:
+      repo_name: ${{ github.event.repository.name }}
+      repo_url: ${{ github.event.repository.html_url }}
+      actor: ${{ github.actor }}
+      branch: ${{ github.ref_name }}
+      event_name: ${{ github.event_name }}
+      commit_msg: ${{ github.event.head_commit.message }}
